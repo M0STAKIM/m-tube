@@ -1,0 +1,2 @@
+Delete this file from your repo:  api/index.js
+Then add/overwrite: vercel.json, api/v1/[name].js, index.js (comment only)

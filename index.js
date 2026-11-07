@@ -1,6 +1,6 @@
 // M-TUBE main entry point.
 //   Local / VPS :  npm install && node index.js        (http://localhost:3000, honours PORT)
-//   Vercel      :  api/index.js re-exports the Express app below as a serverless function
+//   Vercel      :  api/v1/[name].js re-exports the Express app below as a serverless function
 import 'dotenv/config';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -70,7 +70,7 @@ export function createApp() {
 }
 
 const app = createApp();
-export default app; // Vercel: api/index.js re-exports this
+export default app; // Vercel: api/v1/[name].js re-exports this
 
 async function start() {
   if (!fs.existsSync(path.join(PUBLIC_DIR, 'index.html'))) buildSite(); // first run: assemble src/ui -> public/
