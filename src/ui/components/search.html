@@ -1,0 +1,44 @@
+<section class="view" data-view="search" id="view-search" hidden>
+  <div class="vhead"><h2>Search</h2></div>
+  <form class="field glass" id="sr-form" novalidate>
+    {{icon:search}}
+    <input id="sr-q" name="q" type="search" autocomplete="off" enterkeyhint="search" placeholder="Song, artist, video or keyword…" maxlength="200" aria-label="Search">
+    <button class="clear" id="sr-clear" type="button" aria-label="Clear search" hidden>{{icon:x}}</button>
+    <button class="go" type="submit" aria-label="Search">{{icon:search}}</button>
+  </form>
+
+  <div class="stage" id="sr-stage">
+    <div class="state" data-state="idle">
+      <div class="hint glass">{{icon:search}}<p>Search by music title, artist, video title or keyword. Results come from the configured providers.</p></div>
+    </div>
+
+    <div class="state center" data-state="scanning" hidden>
+      <div class="scan" aria-hidden="true"><span class="scan-line"></span><div class="wave">{{bars:25}}</div></div>
+      <h3>Scanning…</h3>
+      <p class="muted">Searching the configured providers</p>
+    </div>
+
+    <div class="state center" data-state="error" hidden>
+      <div class="badge err">{{icon:x}}</div>
+      <h3>Search failed</h3>
+      <p class="muted" id="sr-err-msg"></p>
+      <button class="btn" id="sr-retry" type="button">{{icon:retry}} Try again</button>
+    </div>
+
+    <div class="state center" data-state="empty" hidden>
+      <div class="badge soft">{{icon:search}}</div>
+      <h3>No results found</h3>
+      <p class="muted">Try a different title or artist name.</p>
+    </div>
+
+    <div class="state" data-state="results" hidden>
+      <p class="muted count" id="sr-count"></p>
+      <ul class="results" id="sr-list"></ul>
+    </div>
+
+    <div class="state" data-state="detail" hidden>
+      <button class="btn small" id="sr-back" type="button">{{icon:back}} Results</button>
+      {{panel:search:0}}
+    </div>
+  </div>
+</section>

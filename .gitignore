@@ -1,0 +1,14 @@
+node_modules/
+public/
+.env
+.env.*
+!.env.example
+.vercel/
+*.log
+# runtime data (JSON database + local storage) is never committed
+data/database/*.json
+data/database/*.lock
+data/storage/*
+!data/storage/*/
+data/storage/*/*
+!data/storage/*/.gitkeep

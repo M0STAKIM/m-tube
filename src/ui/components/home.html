@@ -1,0 +1,16 @@
+<section class="view" data-view="home" id="view-home">
+  <div class="hero">
+    <img src="/resources/mostakim.png" alt="M-TUBE logo" width="56" height="56">
+    <div>
+      <h1 class="title">M-<b>TUBE</b></h1>
+      <p class="tagline">Download What You Love</p>
+    </div>
+  </div>
+  <form class="field glass" id="dl-form" novalidate>
+    {{icon:link}}
+    <input id="dl-url" name="url" type="url" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Paste media link here…" maxlength="2048" aria-label="Media link">
+    <button class="clear" id="dl-clear" type="button" aria-label="Clear" hidden>{{icon:x}}</button>
+    <button class="go" type="submit" aria-label="Detect media">{{icon:download}}</button>
+  </form>
+  <div class="stage">{{panel:home:1}}</div>
+</section>

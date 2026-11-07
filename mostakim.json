@@ -1,0 +1,163 @@
+{
+  "database": {
+    "driver": "json",
+    "description": "Custom JSON file database (no SQL/NoSQL service). Files: users, downloads, search-history, analytics, settings.",
+    "directory": "data/database",
+    "collections": [
+      "users",
+      "downloads",
+      "search-history",
+      "analytics",
+      "settings"
+    ]
+  },
+  "providers": {
+    "cloud_api_hub_youtube_downloader": {
+      "enabled": true,
+      "priority": 1,
+      "name": "Cloud API Hub - YouTube Downloader",
+      "transport": "mcp",
+      "mcp": {
+        "server_url": "https://mcp.rapidapi.com",
+        "api_host": "cloud-api-hub-youtube-downloader.p.rapidapi.com",
+        "api_key": "YOUR_RAPIDAPI_KEY"
+      },
+      "capabilities": {
+        "search": false,
+        "audio": true,
+        "video": true
+      }
+    },
+    "all_in_one_ultimate": {
+      "enabled": true,
+      "priority": 2,
+      "name": "All in One Social Media Downloader",
+      "transport": "http",
+      "api_host": "download-all-in-one-ultimate.p.rapidapi.com",
+      "api_key": "YOUR_RAPIDAPI_KEY",
+      "resolve": {
+        "url": "https://download-all-in-one-ultimate.p.rapidapi.com/autolink",
+        "method": "GET",
+        "query_parameter": "url"
+      },
+      "capabilities": {
+        "search": false,
+        "audio": true,
+        "video": true
+      }
+    },
+    "auto_download_all_in_one": {
+      "enabled": true,
+      "priority": 3,
+      "name": "Auto Download All In One",
+      "transport": "http",
+      "api_host": "auto-download-all-in-one.p.rapidapi.com",
+      "api_key": "YOUR_RAPIDAPI_KEY",
+      "resolve": {
+        "url": "https://auto-download-all-in-one.p.rapidapi.com/v1/social/autolink",
+        "method": "POST",
+        "body": {
+          "url": "{media_url}"
+        }
+      },
+      "capabilities": {
+        "search": false,
+        "audio": true,
+        "video": true
+      }
+    },
+    "all_media_downloader": {
+      "enabled": true,
+      "priority": 4,
+      "name": "All Media Downloader",
+      "transport": "mcp",
+      "mcp": {
+        "server_url": "https://mcp.rapidapi.com",
+        "api_host": "all-media-downloader4.p.rapidapi.com",
+        "api_key": "YOUR_RAPIDAPI_KEY"
+      },
+      "capabilities": {
+        "search": false,
+        "audio": true,
+        "video": true
+      }
+    },
+    "soundcloud_scraper": {
+      "enabled": true,
+      "priority": 5,
+      "name": "SoundCloud Scraper",
+      "transport": "mcp",
+      "mcp": {
+        "server_url": "https://mcp.rapidapi.com",
+        "api_host": "soundcloud-scraper.p.rapidapi.com",
+        "api_key": "YOUR_RAPIDAPI_KEY"
+      },
+      "capabilities": {
+        "search": true,
+        "audio": true,
+        "video": false
+      }
+    },
+    "youtube_mp4_mp3_downloader": {
+      "enabled": true,
+      "priority": 6,
+      "name": "YouTube MP4/MP3 Downloader",
+      "transport": "mcp",
+      "mcp": {
+        "server_url": "https://mcp.rapidapi.com",
+        "api_host": "youtube-mp4-mp3-downloader.p.rapidapi.com",
+        "api_key": "YOUR_RAPIDAPI_KEY"
+      },
+      "capabilities": {
+        "search": false,
+        "audio": true,
+        "video": true
+      }
+    },
+    "spotify_music_mp3_downloader": {
+      "enabled": true,
+      "priority": 7,
+      "name": "Spotify Music MP3 Downloader API",
+      "transport": "mcp",
+      "mcp": {
+        "server_url": "https://mcp.rapidapi.com",
+        "api_host": "spotify-music-mp3-downloader-api.p.rapidapi.com",
+        "api_key": "YOUR_RAPIDAPI_KEY"
+      },
+      "capabilities": {
+        "search": true,
+        "audio": true,
+        "video": false
+      }
+    }
+  },
+  "provider_fallback": {
+    "enabled": true,
+    "on_errors": [
+      "timeout",
+      "rate_limit",
+      "quota_exceeded",
+      "server_error",
+      "invalid_response"
+    ],
+    "max_retries_per_provider": 1,
+    "circuit_breaker": {
+      "enabled": true,
+      "failure_threshold": 3,
+      "cooldown_seconds": 300
+    }
+  },
+  "storage": {
+    "driver": "local",
+    "temporary_directory": "storage/app/temp",
+    "max_file_size_mb": 500,
+    "cleanup_enabled": true,
+    "temp_ttl_seconds": 3600,
+    "max_temp_size_mb": 1024,
+    "max_cache_size_mb": 200,
+    "backups": {
+      "keep": 10,
+      "min_interval_seconds": 60
+    }
+  }
+}

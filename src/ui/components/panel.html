@@ -1,0 +1,61 @@
+<div class="dl" data-dl="{{key}}">
+  {{#idle}}
+  <div class="state" data-state="idle">
+    <div class="hint glass">{{icon:link}}<p>Paste a link from a supported site to see the audio and video formats it offers.</p></div>
+    <div class="wave" aria-hidden="true">{{bars:21}}</div>
+  </div>
+  {{/idle}}
+
+  <div class="state center" data-state="detecting" hidden>
+    <div class="liquid" aria-hidden="true"><i></i><i></i><i></i></div>
+    <h3 data-f="detect-title">Detecting media…</h3>
+    <p class="muted" data-f="detect-sub">Please wait a moment</p>
+  </div>
+
+  <div class="state center" data-state="error" hidden>
+    <div class="badge err">{{icon:x}}</div>
+    <h3 data-f="err-title">Something went wrong</h3>
+    <p class="muted" data-f="err-msg"></p>
+    <button class="btn" data-f="retry" type="button">{{icon:retry}} Try again</button>
+  </div>
+
+  <div class="state" data-state="media" hidden>
+    <article class="media glass">
+      <div class="thumb"><img data-f="thumb" alt="" referrerpolicy="no-referrer"><span class="dur" data-f="dur"></span></div>
+      <div class="meta">
+        <h3 data-f="title"></h3>
+        <p class="muted" data-f="artist"></p>
+        <div class="tags"><span class="tag" data-f="platform"></span><span class="tag soft" data-f="provider"></span></div>
+      </div>
+    </article>
+    <div class="fmt glass" data-f="audio-wrap" hidden>
+      <h4>{{icon:music}} Audio <span data-f="audio-ext"></span></h4>
+      <div class="chips" data-f="audio" role="group" aria-label="Audio quality"></div>
+    </div>
+    <div class="fmt glass" data-f="video-wrap" hidden>
+      <h4>{{icon:video}} Video <span data-f="video-ext"></span></h4>
+      <div class="chips" data-f="video" role="group" aria-label="Video quality"></div>
+    </div>
+    <button class="btn primary big" data-f="start" type="button">{{icon:download}} Download</button>
+  </div>
+
+  <div class="state center" data-state="progress" hidden>
+    <div class="ring" data-f="ring">
+      <svg viewBox="0 0 120 120" aria-hidden="true"><circle class="ring-bg" cx="60" cy="60" r="54"/><circle class="ring-fg" data-f="ring-fg" cx="60" cy="60" r="54"/></svg>
+      <div class="ring-in">{{icon:download}}<b data-f="pct">0%</b></div>
+    </div>
+    <h3 data-f="prog-title">Downloading your file…</h3>
+    <p class="muted" data-f="prog-sub">Please keep this page open</p>
+    <div class="mini glass"><img data-f="p-thumb" alt="" referrerpolicy="no-referrer"><div><b data-f="p-name"></b><span class="muted" data-f="p-meta"></span></div></div>
+    <div class="wave small" aria-hidden="true">{{bars:21}}</div>
+    <button class="btn" data-f="cancel" type="button">{{icon:x}} Cancel</button>
+  </div>
+
+  <div class="state center" data-state="done" hidden>
+    <div class="badge ok" aria-hidden="true"><svg viewBox="0 0 52 52"><path d="M14 27l8 8 16-17"/></svg></div>
+    <h3>Download complete</h3>
+    <p class="muted" data-f="done-sub">Your file has been saved.</p>
+    <button class="btn primary big" data-f="again" type="button">{{icon:download}} Download again</button>
+    <button class="btn big" data-f="finish" type="button"></button>
+  </div>
+</div>

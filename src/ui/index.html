@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>M-TUBE — Download What You Love</title>
+<meta name="description" content="M-TUBE — search and download media you have the right to save.">
+<meta name="theme-color" content="#1769ff">
+<link rel="icon" type="image/png" href="/resources/mostakim.png">
+<link rel="apple-touch-icon" href="/resources/mostakim.png">
+<link rel="stylesheet" href="/src/ui/style.css?v={{version}}">
+<link rel="stylesheet" href="/src/ui/responsive.css?v={{version}}">
+<link rel="stylesheet" href="/src/ui/animation.css?v={{version}}">
+</head>
+<body data-view="home" data-tab="home" data-base="" data-api="/api/v1">
+<div class="bg" aria-hidden="true"><i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i></div>
+<div class="app">
+  <main class="views">
+{{include:home}}
+{{include:search}}
+{{include:about}}
+{{include:terms}}
+{{include:privacy}}
+{{include:support}}
+  </main>
+
+  <nav class="nav glass" aria-label="Main navigation">
+    <i class="nav-ind" aria-hidden="true"></i>
+    <a href="/" data-nav="home" aria-current="page">{{icon:home}}<span>Home</span></a>
+    <a href="/?search" data-nav="search">{{icon:search}}<span>Search</span></a>
+    <a href="/?about" data-nav="about">{{icon:info}}<span>About</span></a>
+  </nav>
+</div>
+<script src="/src/ui/app.js?v={{version}}" defer></script>
+</body>
+</html>
